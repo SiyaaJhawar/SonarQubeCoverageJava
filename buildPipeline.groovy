@@ -1,6 +1,5 @@
 node(){
     def sonarScanner = tool name: 'Sonarqubescanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-	
 	stage('Code Checkout'){
 		git changelog: false, credentialsId: 'GitHubCreds', poll: false, url: 'https://github.com/SiyaaJhawar/MavenBuild'
 	}
@@ -12,15 +11,10 @@ node(){
 			
 		"""
 	}
-	stage('SonarQube Analysis') {
-   
-  withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
-			sh "${sonarScanner}/bin/sonar-scanner"
-	               
-    
-  }
-
-
+	stage('code review'){
+	withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
+    sh "ls -lart ${sonarScanner}/bin/sonar-scanner"
+}
 	    
 	}
 	stage('Code Deployment'){
