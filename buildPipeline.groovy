@@ -11,10 +11,11 @@ node(){
 			mvn clean install
 		"""
 	}
-	stage('Code Review'){
-		withSonarQubeEnv(credentialsId: 'SonarQubeToken') {
-			sh "${sonarScanner}/bin/sonar-scanner"
-		}
+		stage('code review'){
+	withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
+    sh "ls -lart ${sonarScanner}/bin/sonar-scanner"
+}
+	    
 	}
 	stage('Code Deployment'){
 	
