@@ -9,14 +9,15 @@ pipeline {
     stages {
         stage('Code Checkout') {
             steps {
+                echo 'Checking out code'
                 git changelog: false, credentialsId: 'GitHubCreds', poll: false, url: 'https://github.com/SiyaaJhawar/SonarQubeCoverageJava'
             }
         }
 
         stage('Maven Build') {
             steps {
+                echo 'Running Maven Build'
                 script {
-                    echo 'Running Maven Build'
                     sh """
                         ls -lart
                         date
@@ -28,14 +29,13 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
+                echo 'Running SonarQube Analysis'
                 script {
-                    echo 'Running SonarQube Analysis'
                     withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
                         sh "${SONAR_SCANNER_HOME}/bin/sonar-scanner"
                     }
                 }
             }
         }
-
- 
     }
+}
