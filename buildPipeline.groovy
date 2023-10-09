@@ -4,9 +4,9 @@ node {
   }
   stage('SonarQube Analysis') {
     def mvn = tool name: 'MavenLatest', type: 'maven'
-    withSonarQubeEnv(redentialsId: 'Sonarqubetoken') {
+    withSonarQubeEnv(redentialsId: 'sonarqubetoken') {
       // Replace 'SonarQubeServer' with the ID of your configured SonarQube server
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
+      sh "${mvn}/bin/mvn clean install sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
     }
   }
 }
