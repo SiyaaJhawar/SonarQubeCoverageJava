@@ -13,7 +13,8 @@ pipeline {
         script {
           def mvnHome = tool name: 'MavenLatest', type: 'maven'
           withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
-            sh "${mvnHome}/bin/mvn clean install sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
+            sh "${mvnHome}/bin/mvn clean install sonar:sonar -X -Dsonar.projectKey=SonarQubeScanner"
+
           }
         }
       }
