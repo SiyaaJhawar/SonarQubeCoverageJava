@@ -37,10 +37,4 @@ pipeline {
             }
         }
 
-        stage('Code Deployment') {
-            steps {
-                // Add deployment steps as needed
-            }
-        }
-    }
-}
+ 
