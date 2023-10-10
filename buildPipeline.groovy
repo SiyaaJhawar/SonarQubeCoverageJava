@@ -23,7 +23,7 @@ node {
      mvn clean verify sonar:sonar \
   -Dsonar.projectKey=SonarQubeScanner \
   -Dsonar.host.url=http://13.232.1.50:9000 \
-  -Dsonar.login=sqp_60056ebaf147e2b0f7c852dd47db09fbb1990ef4
+  -Dsonar.login=sqp_60056ebaf147e2b0f7c852dd47db09fbb1990ef4 \
     }
   }
 
