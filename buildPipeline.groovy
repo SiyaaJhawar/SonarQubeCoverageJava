@@ -12,7 +12,7 @@ node {
         sh """
             ls -lart
             date
-            ${mvn}/bin/mvn clean install
+            ${mvnw}/bin/mvn clean install
         """
     }
 
