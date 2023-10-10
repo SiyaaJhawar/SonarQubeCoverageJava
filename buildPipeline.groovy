@@ -16,13 +16,12 @@ node {
         """
     }
 
-    stage('SonarQube Analysis') {
-        withSonarQubeEnv(installationName: 'Sonarqubeserver') {
-            
-
-            sh './mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar'
-        }
+  stage('SonarQube Analysis') {
+    withSonarQubeEnv(installationName: 'Sonarqubeserver') {
+        sh "./mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar"
     }
+}
+
 
     stage('Code Deployment') {
         // Add deployment steps here
