@@ -2,6 +2,7 @@
 node(){
     def sonarScanner = tool name: 'Sonarqubescanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
 	stage('Code Checkout'){
+		checkout scm
 		git changelog: false, credentialsId: 'GitHubCreds', poll: false, url: 'https://github.com/SiyaaJhawar/MavenBuild'
 	}
 	stage('Maven Build'){
