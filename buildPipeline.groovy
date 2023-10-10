@@ -20,7 +20,11 @@ node {
   def mvn= tool name: 'MavenLatest', type: 'maven'
 
     withSonarQubeEnv('Sonarqubeserver') {
-     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
+     sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=jenkins"
+    }
+  }
+}
+
     }
   }
 
