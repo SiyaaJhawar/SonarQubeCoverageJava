@@ -20,7 +20,7 @@ node {
         withSonarQubeEnv(installationName: 'Sonarqubeserver') {
             
 
-            sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar'
+            sh './mvn clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar'
         }
     }
 
