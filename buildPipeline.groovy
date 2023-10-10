@@ -19,7 +19,7 @@ node {
   stage('SonarQube Analysis') {
   def mvn= tool name: 'MavenLatest', type: 'maven'
 
-    withSonarQubeEnv() {
+    withSonarQubeEnv('Sonarqubeserver') {
       sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
     }
   }
