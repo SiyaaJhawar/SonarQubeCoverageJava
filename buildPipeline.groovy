@@ -23,11 +23,10 @@ node {
      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=jenkins"
     }
   }
-}
 
-    }
-  }
 
+    
+  
 
 
     stage('Code Deployment') {
