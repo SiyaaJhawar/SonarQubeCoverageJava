@@ -21,7 +21,7 @@ node(){
       sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
     }
   }
-}
+
 	stage('Code Deployment'){
 	
 	}
