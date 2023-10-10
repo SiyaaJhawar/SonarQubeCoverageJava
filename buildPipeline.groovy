@@ -20,7 +20,7 @@ node {
   stage('SonarQube Analysis') {
   
     withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
+      sh "${mvn}/bin/mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar"
     }
   }
 
