@@ -17,7 +17,7 @@ node {
     }
 
     stage('SonarQube Analysis') {
-        withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
+        withSonarQubeEnv() {
             
 
             sh "mvn sonar:sonar"
