@@ -1,7 +1,7 @@
 
 node {
     def sonarScanner = tool name: 'Sonarqubescanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    def mvn = tool 'MavenLatest'
+    def mvn = tool name: 'MavenLatest', type: 'maven'
 
     stage('Code Checkout') {
         checkout scm
@@ -19,7 +19,7 @@ node {
     stage('SonarQube Analysis') {
         withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
             
-            sh "${sonarScanner}/bin/sonar-scanner"
+
             sh "${mvn}/bin/mvn clean install sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
         }
     }
