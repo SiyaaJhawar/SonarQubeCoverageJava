@@ -20,7 +20,7 @@ node {
         withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
             
 
-            sh "${mvn}/bin/mvn clean install sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
+            sh "mvn sonar:sonar"
         }
     }
 
