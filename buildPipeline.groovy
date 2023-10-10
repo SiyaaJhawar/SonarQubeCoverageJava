@@ -17,7 +17,7 @@ node {
     }
 
     stage('SonarQube Analysis') {
-        withSonarQubeEnv(credentialsId: 'sonarqubetoken') {
+        withSonarQubeEnv() {
             sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
         }
     }
