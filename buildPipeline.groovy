@@ -1,8 +1,7 @@
 
 node {
     def sonarScanner = tool name: 'Sonarqubescanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-    def mvn= tool name: 'MavenLatest', type: 'maven'
-
+    
     stage('Code Checkout') {
         checkout scm
         git credentialsId: 'GitHubCreds', poll: false, url: 'https://github.com/SiyaaJhawar/MavenBuild'
@@ -18,9 +17,10 @@ node {
 
  
   stage('SonarQube Analysis') {
-  
+  def mvn= tool name: 'MavenLatest', type: 'maven'
+
     withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.10.0.2594:sonar"
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=SonarQubeScanner"
     }
   }
 
