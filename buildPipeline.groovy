@@ -17,7 +17,7 @@ node {
     }
 
     stage('SonarQube Analysis') {
-        withSonarQubeEnv(installationName: `Sonarqubescanner`) {
+        withSonarQubeEnv(installationName: 'Sonarqubescanner') {
             
 
             sh "mvn sonar:sonar"
