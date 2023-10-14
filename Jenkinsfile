@@ -37,3 +37,4 @@ node(){
 			compressLog: true, recipientProviders: [buildUser(), requestor()], subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'anuj_sharma401@yahoo.com'
 	}
 }
+
